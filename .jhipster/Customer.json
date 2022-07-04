@@ -1,0 +1,40 @@
+{
+  "applications": "*",
+  "changelogDate": "20220704085331",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "customer",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dateOfBirth",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "address",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "bankAccount",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Customer",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "asset",
+      "otherEntityRelationshipName": "owner",
+      "ownerSide": true,
+      "relationshipName": "assets",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "no"
+}

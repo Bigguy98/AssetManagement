@@ -1,0 +1,38 @@
+{
+  "applications": "*",
+  "changelogDate": "20220704085330",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "asset",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Asset",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "assetType",
+      "otherEntityRelationshipName": "asset",
+      "relationshipName": "assetType",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "customer",
+      "otherEntityRelationshipName": "assets",
+      "ownerSide": false,
+      "relationshipName": "owner",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "no"
+}
