@@ -213,6 +213,10 @@ To achieve this, first build a docker image of your app by running:
 ./mvnw -Pprod verify jib:dockerBuild
 ```
 
+```
+npm run java:docker
+```
+
 Then run:
 
 ```
