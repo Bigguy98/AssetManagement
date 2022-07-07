@@ -2,7 +2,9 @@ def numArr = [1,2,5,6,9]
 def groovyScript
 
 pipeline {
-    agent pocSecOps 
+    agent {
+        label 'pocSecOps'
+    } 
     parameters {
         string(name: 'APP_NAME', defaultValue: 'Bugsmaker App', description: 'App name')
         choice(name: 'VERSION', choices: ['v1.0', 'v1.1', 'v1.2'], description: 'App version')
