@@ -30,7 +30,7 @@ pipeline {
                    echo "Scanning workspace: ${WORKSPACE}"
                    echo "Current path: ${PATH}"
                     echo "Current home: ${HOME}"
-                    sh "${HOME}/detect --detect.source.path ${WORKSPACE}"
+                    sh "${HOME}/detect --detect.source.path=${WORKSPACE}"
                 }
             }
         }
