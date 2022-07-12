@@ -24,6 +24,14 @@ pipeline {
                 }
             }
         }
+        stage ('Scan security') {
+            steps {
+                script {
+                   echo "Scanning workspace: ${WORKSPACE}"
+                   sh "detect --detect.source.path ${WORKSPACE}"
+                }
+            }
+        }
         stage('Building') {
             steps {
                 script {
