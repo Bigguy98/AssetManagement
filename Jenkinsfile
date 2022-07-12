@@ -29,7 +29,7 @@ pipeline {
                 script {
                    echo "Scanning workspace: ${WORKSPACE}"
                     echo "Current path: ${PATH}"
-                   sh "detect --detect.source.path ${WORKSPACE}"
+                   sh "/home/vagrant/detect --detect.source.path ${WORKSPACE}"
                 }
             }
         }
