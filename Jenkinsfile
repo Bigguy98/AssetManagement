@@ -28,7 +28,8 @@ pipeline {
             steps {
                 script {
                    echo "Scanning workspace: ${WORKSPACE}"
-                    echo "Current path: ${PATH}"
+                   echo "Current path: ${PATH}"
+                    echo "Current home: ${HOME}"
                    sh "/home/vagrant/detect --detect.source.path ${WORKSPACE}"
                 }
             }
