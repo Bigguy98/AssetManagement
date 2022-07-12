@@ -28,6 +28,7 @@ pipeline {
             steps {
                 script {
                    echo "Scanning workspace: ${WORKSPACE}"
+                    echo "Current path: ${PATH}"
                    sh "detect --detect.source.path ${WORKSPACE}"
                 }
             }
