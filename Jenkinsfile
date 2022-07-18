@@ -14,8 +14,8 @@ pipeline {
     environment {
         ENV = 'test'
         BUILD_TOOL = 'mvn'
-		COVERITY_TOOL_HOME=/home/vagrant/cov-analysis-linux64/bin
-		COVERITY_TRIAL_RESULTS_PASSPHRASE=starwars
+		COVERITY_TOOL_HOME='/home/vagrant/cov-analysis-linux64/bin'
+		COVERITY_TRIAL_RESULTS_PASSPHRASE='starwars'
     }
 
     stages {
