@@ -23,10 +23,10 @@ pipeline {
 		  sh "$COVERITY_TOOL_HOME/cov-build --dir idir mvn clean install"
 		  }
 		stage('analyze') {
-		  sh "$COVERITY_TOOL_HOME/cov-analyze" --dir idir --all --disable-fb --webapp-security -j auto"
-		  } 
+		  sh "$COVERITY_TOOL_HOME/cov-analyze --dir idir --all --disable-fb --webapp-security -j auto"
+		} 
 		stage('commit') {
-		  sh "$COVERITY_TOOL_HOME/cov-commit-defects" --dir idir --url http://10.1.62.68:8080 --stream jenkinstest --user admin --password p*oHrdZktC9*53"
+		  sh "$COVERITY_TOOL_HOME/cov-commit-defects --dir idir --url http://10.1.62.68:8080 --stream jenkinstest --user admin --password p*oHrdZktC9*53"
     }
 
     post {
