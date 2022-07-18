@@ -27,7 +27,8 @@ pipeline {
 		} 
 		stage('commit') {
 		  sh "$COVERITY_TOOL_HOME/cov-commit-defects --dir idir --url http://10.1.62.68:8080 --stream jenkinstest --user admin --password p*oHrdZktC9*53"
-    }
+		}
+	}
 
     post {
         always {
