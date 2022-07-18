@@ -16,13 +16,13 @@ pipeline {
         BUILD_TOOL = 'mvn'
 		COVERITY_TOOL_HOME = '/home/vagrant/cov-analysis-linux64/bin'
 		COVERITY_TRIAL_RESULTS_PASSPHRASE = 'starwars'
+		MAVEN_HOME = '/usr/share/maven/bin'
     }
 
     stages {
 		stage('build') {
 			steps {
-                sh "./mvnw -Pprod clean verify"
-// 			sh "$COVERITY_TOOL_HOME/cov-build --dir idir ./mvnw -Pprod clean verify"
+			sh "$COVERITY_TOOL_HOME/cov-build --dir idir $MAVEN_HOME/mvn clean install"
 			}
 		  
 		}
