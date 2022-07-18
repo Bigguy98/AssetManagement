@@ -14,19 +14,27 @@ pipeline {
     environment {
         ENV = 'test'
         BUILD_TOOL = 'mvn'
-		COVERITY_TOOL_HOME='/home/vagrant/cov-analysis-linux64/bin'
-		COVERITY_TRIAL_RESULTS_PASSPHRASE='starwars'
+		COVERITY_TOOL_HOME = '/home/vagrant/cov-analysis-linux64/bin'
+		COVERITY_TRIAL_RESULTS_PASSPHRASE = 'starwars'
     }
 
     stages {
 		stage('build') {
-		  sh "$COVERITY_TOOL_HOME/cov-build --dir idir mvn clean install"
-		  }
+			steps {
+			sh "$COVERITY_TOOL_HOME/cov-build --dir idir mvn clean install"
+			}
+		  
+		}
 		stage('analyze') {
-		  sh "$COVERITY_TOOL_HOME/cov-analyze --dir idir --all --disable-fb --webapp-security -j auto"
+			steps {
+			sh "$COVERITY_TOOL_HOME/cov-analyze --dir idir --all --disable-fb --webapp-security -j auto"
+			}
+		  
 		} 
 		stage('commit') {
-		  sh "$COVERITY_TOOL_HOME/cov-commit-defects --dir idir --url http://10.1.62.68:8080 --stream jenkinstest --user admin --password p*oHrdZktC9*53"
+			steps {
+				sh "$COVERITY_TOOL_HOME/cov-commit-defects --dir idir --url http://10.1.62.68:8080 --stream jenkinstest --user admin --password p*oHrdZktC9*53"
+			}
 		}
 	}
 
