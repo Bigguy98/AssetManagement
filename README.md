@@ -124,7 +124,7 @@ docker-compose -f src/main/docker/jhipster-control-center.yml up
 To build the final jar and optimize the AssetManagement application for production, run:
 
 ```
-./mvnw -Pprod clean verify
+./mvnw -Pprod clean verify -DskipTests
 ```
 
 This will concatenate and minify the client CSS and JavaScript files. It will also modify `index.html` so it references these new files.
