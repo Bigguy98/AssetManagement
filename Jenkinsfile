@@ -20,14 +20,14 @@ pipeline {
     }
 
     stages {
-		stage('build') {
-			steps {
-                // sh "$COVERITY_TOOL_HOME/cov-capture --dir idir --source-dir ."
-                // sh "$COVERITY_TOOL_HOME/cov-build --dir idir $MAVEN_HOME/bin/mvn -Pprod clean verify -DskipTests"
-                sh "$MAVEN_HOME/bin/mvn -Pprod clean verify -DskipTests"
-            }
+		// stage('build') {
+		// 	steps {
+        //         // sh "$COVERITY_TOOL_HOME/cov-capture --dir idir --source-dir ."
+        //         // sh "$COVERITY_TOOL_HOME/cov-build --dir idir $MAVEN_HOME/bin/mvn -Pprod clean verify -DskipTests"
+        //         sh "$MAVEN_HOME/bin/mvn -Pprod clean verify -DskipTests"
+        //     }
 		  
-		}
+		// }
 		// stage('analyze') {
 		// 	steps {
 		// 	    sh "$COVERITY_TOOL_HOME/cov-analyze --dir idir --all --disable-fb --webapp-security -j auto"
