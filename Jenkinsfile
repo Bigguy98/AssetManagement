@@ -22,7 +22,7 @@ pipeline {
     stages {
 		stage('build') {
 			steps {
-//                 sh "$COVERITY_TOOL_HOME/cov-capture --dir idir --source-dir ."
+                // sh "$COVERITY_TOOL_HOME/cov-capture --dir idir --source-dir ."
                 sh "$COVERITY_TOOL_HOME/cov-build --dir idir $MAVEN_HOME/bin/mvn -Pprod clean verify -DskipTests"
 			}
 		  
@@ -38,6 +38,12 @@ pipeline {
 				sh "$COVERITY_TOOL_HOME/cov-commit-defects --dir idir --url http://10.1.62.68:8080 --stream jenkinstest --user admin --password p*oHrdZktC9*53"
 			}
 		}
+
+        // stage('build image') {
+        //     steps {
+		// 		sh "docker build -t asset-management:v1 ."
+		// 	}
+        // }
 	}
 
     post {
