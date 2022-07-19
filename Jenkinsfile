@@ -43,7 +43,7 @@ pipeline {
         stage('build image') {
             steps {
 				sh "docker build -t asset-management:v1 ."
-                sh "cd  src/main/docker && docker-compose -f app.yaml up -d"
+                sh "cd  src/main/docker && docker-compose -f app.yml up -d"
 			}
         }
 	}
