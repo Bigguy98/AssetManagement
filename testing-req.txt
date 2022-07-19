@@ -1,0 +1,79 @@
+
+
+************ REQUEST FOR TESTING *************
+
+CREATE NEW CUSTOMER
+
+curl -X 'POST' \
+  'http://localhost:8080/api/customers' \
+  -H 'accept: */*' \
+  -H 'Content-Type: application/json' \
+  -H 'Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX0FETUlOLFJPTEVfVVNFUiIsImV4cCI6MTY1ODI4Mzk2OX0.gGxZ5RjnC-MOJyx1gbjTiazG3qKPatjP4KO_dY2zrNsU8zWnnGcqkts7z5X0il9s5VBunPbyoptbauMnrxunUg' \
+  -d '{
+  "name": "abc",
+  "dateOfBirth": "2022-07-19",
+  "address": "string",
+  "bankAccount": "11011"
+}'
+
+GET ALL CUSTOMERS
+
+curl -X 'GET' \
+  'http://localhost:8080/api/customers?eagerload=false' \
+  -H 'accept: */*' \
+  -H 'Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX0FETUlOLFJPTEVfVVNFUiIsImV4cCI6MTY1ODI4Mzk2OX0.gGxZ5RjnC-MOJyx1gbjTiazG3qKPatjP4KO_dY2zrNsU8zWnnGcqkts7z5X0il9s5VBunPbyoptbauMnrxunUg'
+
+
+
+GET ALL ACCOUNTS
+
+curl -X 'GET' \
+  'http://localhost:8080/api/account' \
+  -H 'accept: */*' \
+  -H 'Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX0FETUlOLFJPTEVfVVNFUiIsImV4cCI6MTY1ODI4Mzk2OX0.gGxZ5RjnC-MOJyx1gbjTiazG3qKPatjP4KO_dY2zrNsU8zWnnGcqkts7z5X0il9s5VBunPbyoptbauMnrxunUg'
+
+
+CREATE ASSET-Type
+
+curl -X 'POST' \
+  'http://localhost:8080/api/asset-types' \
+  -H 'accept: */*' \
+  -H 'Content-Type: application/json' \
+  -H 'Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX0FETUlOLFJPTEVfVVNFUiIsImV4cCI6MTY1ODI4Mzk2OX0.gGxZ5RjnC-MOJyx1gbjTiazG3qKPatjP4KO_dY2zrNsU8zWnnGcqkts7z5X0il9s5VBunPbyoptbauMnrxunUg' \
+  -d '{
+  "name": "string",
+  "description": "string"
+}'
+
+
+CREATE ASSET
+curl -X 'POST' \
+  'http://localhost:8080/api/assets' \
+  -H 'accept: */*' \
+  -H 'Content-Type: application/json' \
+  -H 'Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX0FETUlOLFJPTEVfVVNFUiIsImV4cCI6MTY1ODI4Mzk2OX0.gGxZ5RjnC-MOJyx1gbjTiazG3qKPatjP4KO_dY2zrNsU8zWnnGcqkts7z5X0il9s5VBunPbyoptbauMnrxunUg' \
+  -d '{
+  "name": "string",
+  "description": "string",
+  "assetType": {
+    "id": 1051
+  }
+}'
+
+UPDATE ASSET
+
+curl -X 'PUT' \
+  'http://localhost:8080/api/assets/1101' \
+  -H 'accept: */*' \
+  -H 'Content-Type: application/json' \
+  -H 'Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX0FETUlOLFJPTEVfVVNFUiIsImV4cCI6MTY1ODI4Mzk2OX0.gGxZ5RjnC-MOJyx1gbjTiazG3qKPatjP4KO_dY2zrNsU8zWnnGcqkts7z5X0il9s5VBunPbyoptbauMnrxunUg' \
+  -d '{
+  "id": 1101,
+  "name": "string_UPDATED",
+  "description": "string_UPDATED",
+  "assetType": {
+    "id": 1051
+  }
+}'
+
+
