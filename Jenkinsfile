@@ -55,6 +55,7 @@ pipeline {
 --blackduck.trust.cert=true \
 --detect.project.name=sample \
 --detect.project.version.name=master \
+--detect.maven.path=/opt/maven/bin/mvn
 --detect.maven.build.command=clean package -DskipTests"
             }
         }
