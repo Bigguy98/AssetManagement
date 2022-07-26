@@ -20,31 +20,43 @@ pipeline {
     }
 
     stages {
-		stage('scan security') {
-			steps {
-                // sh "$COVERITY_TOOL_HOME/cov-capture --dir idir --source-dir ."
-                sh "$COVERITY_TOOL_HOME/cov-build --dir idir $MAVEN_HOME/bin/mvn -Pprod clean verify -DskipTests"
-                // sh "$MAVEN_HOME/bin/mvn -Pprod clean verify -DskipTests"
-            }
+// 		stage('scan security') {
+// 			steps {
+//                 // sh "$COVERITY_TOOL_HOME/cov-capture --dir idir --source-dir ."
+//                 sh "$COVERITY_TOOL_HOME/cov-build --dir idir $MAVEN_HOME/bin/mvn -Pprod clean verify -DskipTests"
+//                 // sh "$MAVEN_HOME/bin/mvn -Pprod clean verify -DskipTests"
+//             }
 		  
-		}
-		stage('analyze') {
-			steps {
-			    sh "$COVERITY_TOOL_HOME/cov-analyze --dir idir --all --disable-fb --webapp-security -j auto"
-			}
+// 		}
+// 		stage('analyze') {
+// 			steps {
+// 			    sh "$COVERITY_TOOL_HOME/cov-analyze --dir idir --all --disable-fb --webapp-security -j auto"
+// 			}
 		  
-		} 
-		stage('commit') {
-			steps {
-				sh "$COVERITY_TOOL_HOME/cov-commit-defects --dir idir --url http://10.1.62.68:8080 --stream jenkinstest --user admin --password p*oHrdZktC9*53"
-			}
-		}
+// 		} 
+// 		stage('commit') {
+// 			steps {
+// 				sh "$COVERITY_TOOL_HOME/cov-commit-defects --dir idir --url http://10.1.62.68:8080 --stream jenkinstest --user admin --password p*oHrdZktC9*53"
+// 			}
+// 		}
 
-        stage('build image') {
+//         stage('build image') {
+//             steps {
+// 				sh "docker build -t asset-management:v1 ."
+//                 sh "cd  src/main/docker && docker-compose -f app.yml up -d"
+// 			}
+//         }
+        
+        stage('scan with blackduck detect') {
             steps {
-				sh "docker build -t asset-management:v1 ."
-                sh "cd  src/main/docker && docker-compose -f app.yml up -d"
-			}
+                sh "java -jar $HOME/synopsys-detect/download/latest-detect.jar \
+--blackduck.url=https://10.159.131.165 \
+--blackduck.api.token=NDM2YWJhNTgtYTY3MS00YTQzLTliYTQtNzdiNmE3YzdkNjQ5OjYzMGU5Mzc2LTRhYzAtNGNhOS1hYzRlLTRlOTExNGIyZmZlMw== \
+--blackduck.trust.cert=true \
+--detect.project.name=sample \
+--detect.project.version.name=master \
+--detect.maven.build.command=clean package -DskipTests"
+            }
         }
 	}
 
