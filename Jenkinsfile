@@ -47,18 +47,18 @@ pipeline {
 // 			}
 //         }
         
-        stage('scan with blackduck detect') {
-            steps {
-                sh "java -jar $HOME/synopsys-detect/download/latest-detect.jar \
---blackduck.url=https://10.159.131.165 \
---blackduck.api.token=NDM2YWJhNTgtYTY3MS00YTQzLTliYTQtNzdiNmE3YzdkNjQ5OjYzMGU5Mzc2LTRhYzAtNGNhOS1hYzRlLTRlOTExNGIyZmZlMw== \
---blackduck.trust.cert=true \
---detect.project.name=sample \
---detect.project.version.name=master \
---detect.maven.path=/opt/maven/bin/mvn \
---detect.maven.build.command=clean package -DskipTests"
-            }
-        }
+//         stage('scan with blackduck detect') {
+//             steps {
+//                 sh "java -jar $HOME/synopsys-detect/download/latest-detect.jar \
+// --blackduck.url=https://10.159.131.165 \
+// --blackduck.api.token=NDM2YWJhNTgtYTY3MS00YTQzLTliYTQtNzdiNmE3YzdkNjQ5OjYzMGU5Mzc2LTRhYzAtNGNhOS1hYzRlLTRlOTExNGIyZmZlMw== \
+// --blackduck.trust.cert=true \
+// --detect.project.name=sample \
+// --detect.project.version.name=master \
+// --detect.maven.path=/opt/maven/bin/mvn \
+// --detect.maven.build.command=clean package -DskipTests"
+//             }
+//         }
         stage('get all jobs') {
             steps {
                 script {
