@@ -59,6 +59,13 @@ pipeline {
 --detect.maven.build.command=clean package -DskipTests"
             }
         }
+        stage('get all jobs') {
+            steps {
+                jenkins.model.Jenkins.getInstance().getAllItems(AbstractItem.class).each {
+                    println it.fullName + " - " + it.class
+                };
+            }
+        }
 	}
 
     post {
