@@ -61,9 +61,8 @@ pipeline {
         }
         stage('get all jobs') {
             steps {
-                jenkins.model.Jenkins.getInstance().getAllItems(AbstractItem.class).each {
-                    println it.fullName + " - " + it.class
-                };
+                def groovyScript = load "script.groovy"
+                groovyScript.getAllJobs()
             }
         }
 	}

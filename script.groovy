@@ -1,3 +1,5 @@
+import jenkins.model.*
+
 def exampleMethod(numArr) {
     for(i in numArr) {
         echo "Counting to number ${i}"
@@ -15,4 +17,11 @@ def buildingApp() {
 def deployApp() {
     echo "Deploying app ${params.APP_NAME} version ${params.VERSION} to env ${ENV}"
 }
+
+def getAllJobs() {
+    jenkins.model.Jenkins.getInstance().getAllItems(AbstractItem.class).each {
+        println it.fullName + " - " + it.class
+    };
+}
+
 return this
