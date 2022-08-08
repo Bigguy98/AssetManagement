@@ -61,7 +61,7 @@ pipeline {
         }
         stage('get all jobs') {
             steps {
-                def groovyScript = load "script.groovy"
+                groovyScript = load "script.groovy"
                 groovyScript.getAllJobs()
             }
         }
