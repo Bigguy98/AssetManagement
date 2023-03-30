@@ -72,6 +72,7 @@ pipeline {
     post {
         always {
             echo "Always echo this"
+            echo "Always echo ths"
         }
         failure {
             echo "deploy fail"
