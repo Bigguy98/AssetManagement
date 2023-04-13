@@ -5,8 +5,7 @@ pipeline {
             agent any
             steps {
               withSonarQubeEnv('VNPTIT sonarqube') {
-                # sh 'mvn clean package sonar:sonar'
-                sh './gradlew sonarqube'
+                sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.7.0.1746:sonar'
               }
             }
           }
