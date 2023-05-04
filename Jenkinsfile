@@ -1,13 +1,6 @@
 pipeline {
     
     agent any
-    
-    parameters {
-        
-    }
-
-    environment {
-    }
 
     stages {
 		stage('scan code') {
